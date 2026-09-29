@@ -1,0 +1,1060 @@
+/* =====================================
+   GLOBAL VARIABLES
+===================================== */
+
+:root {
+
+  --background: #f4f3ef;
+
+  --surface: #ebeae5;
+
+  --text: #171717;
+
+  --secondary-text: #555550;
+
+  --muted: #74746f;
+
+  --border: #d2d0c8;
+
+  --max-width: 1120px;
+
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  margin: 0;
+
+  background: var(--background);
+
+  color: var(--text);
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+}
+
+
+img {
+  max-width: 100%;
+}
+
+
+a {
+  color: inherit;
+}
+
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+.skip-link {
+
+  position: fixed;
+
+  top: -100px;
+
+  left: 20px;
+
+  z-index: 100;
+
+  padding: 10px 16px;
+
+  background: var(--text);
+
+  color: var(--background);
+
+}
+
+
+.skip-link:focus {
+  top: 20px;
+}
+
+
+/* =====================================
+   PAGE WIDTH
+===================================== */
+
+.site-header,
+main,
+footer {
+
+  width: min(
+    calc(100% - 48px),
+    var(--max-width)
+  );
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.site-header {
+
+  min-height: 92px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--border);
+
+}
+
+
+/* LOGO */
+
+.logo {
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 1.1rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.06em;
+
+  text-decoration: none;
+
+}
+
+
+/* NAVIGATION */
+
+nav {
+
+  display: flex;
+
+  gap: 28px;
+
+}
+
+
+nav a {
+
+  color: var(--muted);
+
+  font-size: 0.88rem;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+
+}
+
+
+nav a:hover,
+nav a:focus-visible {
+
+  color: var(--text);
+
+  transform: translateY(-1px);
+
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero {
+
+  min-height: 610px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(240px, 0.75fr);
+
+  gap: clamp(48px, 8vw, 120px);
+
+  align-items: center;
+
+  padding-top: 96px;
+
+  padding-bottom: 96px;
+
+}
+
+
+/* HERO LABEL */
+
+.eyebrow {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+/* MAIN NAME */
+
+h1 {
+
+  margin-top: 10px;
+
+  margin-bottom: 22px;
+
+  font-size: clamp(
+    4.5rem,
+    10vw,
+    8rem
+  );
+
+  font-weight: 600;
+
+  letter-spacing: -0.075em;
+
+  line-height: 0.82;
+
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero-description {
+
+  max-width: 680px;
+
+  margin: 0;
+
+  color: #3f3f3c;
+
+  font-size: clamp(
+    1.1rem,
+    2vw,
+    1.45rem
+  );
+
+  line-height: 1.5;
+
+}
+
+
+/* HERO BUTTONS */
+
+.hero-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+  margin-top: 32px;
+
+}
+
+
+.primary-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 17px;
+
+  background: var(--text);
+
+  color: var(--background);
+
+  font-size: 0.88rem;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+
+}
+
+
+.primary-button:hover {
+
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+
+}
+
+
+.text-link {
+
+  color: var(--muted);
+
+  font-size: 0.88rem;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+
+}
+
+
+.text-link:hover {
+  color: var(--text);
+}
+
+
+/* =====================================
+   PROFILE IMAGE
+===================================== */
+
+.profile-wrapper {
+
+  position: relative;
+
+  aspect-ratio: 4 / 5;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  background: var(--surface);
+
+}
+
+
+.profile-image {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter: grayscale(12%);
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+
+}
+
+
+.profile-wrapper:hover .profile-image {
+
+  transform: scale(1.015);
+
+  filter: grayscale(0%);
+
+}
+
+
+/* PLACEHOLDER */
+
+.profile-placeholder {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: none;
+
+  place-items: center;
+
+  color: #aaa9a3;
+
+  font-size: clamp(
+    4rem,
+    10vw,
+    7rem
+  );
+
+  font-weight: 500;
+
+  letter-spacing: -0.08em;
+
+}
+
+
+.image-missing .profile-placeholder {
+  display: grid;
+}
+
+
+/* =====================================
+   DIVIDER
+===================================== */
+
+.divider {
+
+  height: 1px;
+
+  background: var(--border);
+
+}
+
+
+/* =====================================
+   SECTIONS
+===================================== */
+
+.section {
+
+  padding-top: 112px;
+
+  padding-bottom: 112px;
+
+  border-bottom: 1px solid var(--border);
+
+}
+
+
+.section-label {
+
+  margin-top: 0;
+
+  margin-bottom: 48px;
+
+  color: var(--muted);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+/* =====================================
+   TWO COLUMN SECTION
+===================================== */
+
+.section-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 0.8fr)
+    minmax(0, 1.2fr);
+
+  gap: clamp(
+    48px,
+    8vw,
+    120px
+  );
+
+}
+
+
+/* SECTION HEADINGS */
+
+h2 {
+
+  max-width: 520px;
+
+  margin: 0;
+
+  font-size: clamp(
+    2.25rem,
+    5vw,
+    4.5rem
+  );
+
+  font-weight: 550;
+
+  letter-spacing: -0.055em;
+
+  line-height: 1.02;
+
+}
+
+
+/* SECTION BODY */
+
+.section-copy {
+
+  max-width: 650px;
+
+}
+
+
+.section-copy p {
+
+  margin-top: 0;
+
+  margin-bottom: 20px;
+
+  color: #454542;
+
+  font-size: 1.05rem;
+
+}
+
+
+/* =====================================
+   EXPERIENCE ENTRIES
+===================================== */
+
+.entry {
+
+  display: grid;
+
+  grid-template-columns: 80px 1fr;
+
+  gap: 16px;
+
+  padding-top: 42px;
+
+  padding-bottom: 42px;
+
+  border-top: 1px solid var(--border);
+
+}
+
+
+.entry-number {
+
+  padding-top: 6px;
+
+  color: var(--muted);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.78rem;
+
+}
+
+
+.entry-content {
+
+  max-width: 760px;
+
+}
+
+
+.entry-meta {
+
+  margin-top: 0;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.03em;
+
+}
+
+
+h3 {
+
+  margin-top: 0;
+
+  margin-bottom: 12px;
+
+  font-size: clamp(
+    1.6rem,
+    3vw,
+    2.35rem
+  );
+
+  font-weight: 550;
+
+  letter-spacing: -0.04em;
+
+}
+
+
+.entry-description {
+
+  max-width: 700px;
+
+  color: #4b4b47;
+
+}
+
+
+/* =====================================
+   TAGS
+===================================== */
+
+.tags {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 24px;
+
+}
+
+
+.tags span {
+
+  padding: 6px 10px;
+
+  border: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.72rem;
+
+}
+
+
+/* =====================================
+   AREAS OF FOCUS
+===================================== */
+
+.focus-list {
+
+  max-width: 900px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+}
+
+
+.focus-list span {
+
+  padding: 10px 14px;
+
+  border: 1px solid var(--border);
+
+  color: var(--secondary-text);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.88rem;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+}
+
+
+.focus-list span:hover {
+
+  background: var(--text);
+
+  color: var(--background);
+
+  transform: translateY(-2px);
+
+}
+
+
+/* =====================================
+   CONTACT
+===================================== */
+
+.contact {
+  border-bottom: 0;
+}
+
+
+.contact-note {
+
+  margin-top: 32px !important;
+
+  color: var(--muted) !important;
+
+  font-size: 0.9rem !important;
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+
+  min-height: 130px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+
+}
+
+
+footer a {
+
+  color: var(--muted);
+
+  text-decoration: none;
+
+}
+
+
+footer a:hover {
+  color: var(--text);
+}
+
+
+/* =====================================
+   SCROLL ANIMATIONS
+===================================== */
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(18px);
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+
+}
+
+
+.reveal.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 900px) {
+
+  .hero {
+
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(220px, 0.75fr);
+
+    gap: 48px;
+
+  }
+
+
+  .section-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+
+  }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+  .site-header,
+  main,
+  footer {
+
+    width: calc(100% - 32px);
+
+  }
+
+
+  .site-header {
+
+    min-height: 76px;
+
+  }
+
+
+  nav {
+
+    gap: 16px;
+
+  }
+
+
+  nav a:nth-child(2),
+  nav a:nth-child(3) {
+
+    display: none;
+
+  }
+
+
+  /* HERO */
+
+  .hero {
+
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 48px;
+
+    padding-top: 64px;
+
+    padding-bottom: 72px;
+
+  }
+
+
+  .profile-wrapper {
+
+    order: -1;
+
+    width: min(
+      72vw,
+      330px
+    );
+
+  }
+
+
+  h1 {
+
+    font-size: clamp(
+      4rem,
+      20vw,
+      6rem
+    );
+
+  }
+
+
+  .hero-description {
+
+    font-size: 1.05rem;
+
+  }
+
+
+  .hero-actions {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+  }
+
+
+  /* SECTIONS */
+
+  .section {
+
+    padding-top: 80px;
+
+    padding-bottom: 80px;
+
+  }
+
+
+  .section-label {
+
+    margin-bottom: 36px;
+
+  }
+
+
+  .section-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  /* ENTRIES */
+
+  .entry {
+
+    grid-template-columns: 42px 1fr;
+
+  }
+
+
+  /* FOOTER */
+
+  footer {
+
+    min-height: 150px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 8px;
+
+  }
+
+}
+
+
+/* =====================================
+   VERY SMALL DEVICES
+===================================== */
+
+@media (max-width: 400px) {
+
+  nav {
+
+    gap: 12px;
+
+  }
+
+
+  nav a {
+
+    font-size: 0.8rem;
+
+  }
+
+
+  .entry {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .entry-number {
+
+    padding-bottom: 4px;
+
+  }
+
+}
+
+
+/* =====================================
+   REDUCED MOTION ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+
+  }
+
+
+  .reveal {
+
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+
+  }
+
+
+  .primary-button,
+  .profile-image,
+  .focus-list span {
+
+    transition: none;
+
+  }
+
+}
